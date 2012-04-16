@@ -1,0 +1,52 @@
+Source: libsamsung-ipc
+Section: libs
+Priority: extra
+Maintainer: Simon Busch <morphis@gravedo.de>
+Standards-Version: 3.9.3
+Build-Depends: debhelper (>= 9.2),
+               dh-autoreconf,
+               quilt,
+               libssl-dev (>= 1.0.0e)
+Homepage: https://github.com/morphis/libsamsung-ipc
+
+Package: libsamsung-ipc0
+Architecture: any
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends},
+         libssl1.0.0 (>= 1.0.0e)
+Multi-Arch: same
+Description: Samsung IPC modem protocol implementation - library
+ libsamsung-ipc is the implementation of the IPC modem communication
+ protocol used on most modern smartphone developed and procuded by
+ Samsung.
+
+Package: libsamsung-ipc-dev
+Priority: extra
+Section: libdevel
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         libsamsung-ipc0 (= ${binary:Version})
+Description: Samsung IPC modem protocol implementation - development headers
+ libsamsung-ipc is the implementation of the IPC modem communication
+ protocol used on most modern smartphone developed and procuded by
+ Samsung.
+ .
+ This package offers files required for the development of new programs
+ with this library and should not be required for using on the target.
+
+Package: libsamsung-ipc-dbg
+Priority: extra
+Architecture: any
+Section: debug
+Depends: libsamsung-ipc0 (= ${binary:Version}),
+         ${misc:Depends}
+Description: Samsung IPC modem protocol implementation - library symbols
+ libsamsung-ipc is the implementation of the IPC modem communication
+ protocol used on most modern smartphone developed and procuded by
+ Samsung.
+ .
+ This package contains unstripped shared libraries. It is provided
+ primarily to provide a backtrace with names in a debugger, this makes
+ it somewhat easier to interpret core dumps. The libraries are installed
+ in /usr/lib/debug and are automatically used by gdb.
